@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Cloud Computing Portal</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <i class="bi bi-cloud-fill"></i> Cloud Computing Portal
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="deployment.html">Deployment</a></li>
+                <li class="nav-item"><a class="nav-link" href="providers.html">Providers</a></li>
+                <li class="nav-item"><a class="nav-link" href="security.html">Security</a></li>
+                <li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-4">
+            <span class="topic-badge">Contact</span>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="text-muted col-lg-8 mx-auto">Have a question or suggestion about this portal? Send us a message below.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card p-4">
+
+                    <div id="contactAlert" class="alert d-none" role="alert"></div>
+
+                    <form id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    var form = e.target;
+    var action = form.getAttribute("action");
+    var alertBox = document.getElementById("contactAlert");
+
+    if (action.indexOf("YOUR_FORM_ID") !== -1) {
+        // Formspree not configured yet - show a friendly local message instead of sending.
+        e.preventDefault();
+        alertBox.className = "alert alert-success";
+        alertBox.textContent = "Thank you! Your message has been noted (form backend not yet connected).";
+        alertBox.classList.remove("d-none");
+        form.reset();
+    }
+    // If a real Formspree endpoint is set, the form submits normally and Formspree
+    // shows its own success page / redirect.
+});
+</script>
+
+<footer class="footer-section bg-primary text-white mt-5 pt-4 pb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5><i class="bi bi-cloud-fill"></i> Cloud Computing Portal</h5>
+                <p class="small">A simple one-stop website to learn Cloud Computing concepts, made as a college project by a B.Tech IT student.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h6>Quick Links</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About </a></li>
+                    <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h6>About This Project</h6>
+                <p class="small mb-0">Built using HTML, CSS, JavaScript and Bootstrap.</p>
+                <p class="small">SKIT, Jaipur - 2nd Year B.Tech IT Inhouse Internship Project.</p>
+            </div>
+        </div>
+        <hr class="border-light">
+        <p class="text-center small mb-0">&copy; 2026 Cloud Computing Information Portal | Made for Educational Purpose</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
